@@ -1,5 +1,7 @@
 package aplicacao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import entidades.Contribuinte;
@@ -30,6 +32,31 @@ public class Programa {
 		System.out.println(ind2);
 		System.out.println(emp1);
 		System.out.println(emp2);
+		
+		
+		System.out.println("\nArmazenando dados em uma lista de Contribuintes");
+		
+		// Lista de coleções sempre da classe genérica (superClasse)
+		List<Contribuinte> listaContribuintes = new ArrayList<Contribuinte>(); 
+		
+		Contribuinte alex = new Individual("Alex",50000.0,2000.0);
+		Contribuinte softTech = new Empresa("SoftTech",400000.0,25);
+		Contribuinte bob = new Individual("Bob",120000.0,1000.0);
+		
+		listaContribuintes.add(alex);
+		listaContribuintes.add(softTech);
+		listaContribuintes.add(bob);
+		
+		Double somatorio =0.0;
+		System.out.println("Pagantes de Imposto");
+		for(Contribuinte apelido: listaContribuintes) {
+			somatorio = somatorio + apelido.imposto();
+			System.out.println(apelido.getNome() + ": R$ " + String.format("%.2f",apelido.imposto()));
+		}
+		
+		System.out.print("\n");
+		System.out.printf("Total de Impostos: %s",String.format("R$ %.2f",somatorio));
+		
 		
 		
 
